@@ -2,6 +2,9 @@
 <robot name="ros_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="materials.xacro"/>
+  <xacro:include filename="$(find ros_robot_description)/urdf/ros_robot_gazebo.xacro"/>
+  <xacro:include filename="$(find ros_robot_description)/urdf/ros_robot_ros2_control.xacro"/>
+
 
   <!-- Useful XACRO Variables (Properties) -->
   <xacro:property name="PI" value="3.14159265359" />
@@ -1202,5 +1205,45 @@
     <axis xyz="-0.087156 0.0 0.996195" />
     <mimic joint="Gripper Grab" multiplier="-1"/>
   </joint>
+
+  <transmission name="transmission_base">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="base_servo" role="actuator1"/>
+    <joint name="Base Rotate" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_shoulder">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="shoulder_servo" role="actuator1"/>
+    <joint name="Shoulder Rotate" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_elbow">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="elbow_servo" role="actuator1"/>
+    <joint name="Elbow Rotate" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_wrist">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="wrist_servo" role="actuator1"/>
+    <joint name="Wrist Rotate" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_grab">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="grab_servo" role="actuator1"/>
+    <joint name="Gripper Grab" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
 
 </robot>
