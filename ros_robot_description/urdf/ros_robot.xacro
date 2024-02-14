@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <robot name="ros_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="materials.xacro"/>
-  <xacro:include filename="$(find ros_robot_description)/urdf/ros_robot_gazebo.xacro"/>
-  <xacro:include filename="$(find ros_robot_description)/urdf/ros_robot_ros2_control.xacro"/>
+  <xacro:include filename="materials.xacro" />
+  <xacro:include filename="$(find ros_robot_description)/urdf/ros_robot_gazebo.xacro" />
+  <xacro:include filename="$(find ros_robot_description)/urdf/ros_robot_ros2_control.xacro" />
 
 
   <!-- Useful XACRO Variables (Properties) -->
   <xacro:property name="PI" value="3.14159265359" />
   <xacro:property name="effort" value="30.0" />
-  <xacro:property name="velocity" value="10.0" />  
-  
+  <xacro:property name="velocity" value="10.0" />
+
   <link name="base_link">
     <inertial>
       <origin xyz="0.0009780545525355266 -0.008632686866408387 0.005555903945052927" rpy="0 0 0" />
@@ -840,6 +840,8 @@
     </collision>
   </link>
 
+  <link name="camera_link_optical"></link>
+
   <link name="end_effector_right_1">
     <inertial>
       <origin xyz="0.023074749323015745 0.005069284828878744 0.0005135274521786137" rpy="0 0 0" />
@@ -1166,10 +1168,16 @@
     <child link="gripper_servo_1" />
   </joint>
 
-  <joint name="Rigid 36" type="fixed">
+  <joint name="camera_joint" type="fixed">
     <origin xyz="0.027475 -0.025918 0.245726" rpy="0 0 0" />
     <parent link="wrist_end_plate_1" />
     <child link="camera_1" />
+  </joint>
+
+  <joint name="camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+    <parent link="camera_1" />
+    <child link="camera_link_optical" />
   </joint>
 
   <joint name="Rigid 39" type="fixed">
@@ -1203,77 +1211,111 @@
     <parent link="gripper_plate_1" />
     <child link="right_gripper_gear_1" />
     <axis xyz="-0.087156 0.0 0.996195" />
-    <mimic joint="Gripper Grab" multiplier="-1"/>
+    <mimic joint="Gripper Grab" multiplier="-1" />
   </joint>
 
   <transmission name="transmission_base">
     <plugin>transmission_interface/SimpleTransmission</plugin>
-    <actuator name="base_servo" role="actuator1"/>
+    <actuator name="base_servo" role="actuator1" />
     <joint name="Base Rotate" role="joint1">
-        <mechanical_reduction>1.0</mechanical_reduction>
+      <mechanical_reduction>1.0</mechanical_reduction>
     </joint>
   </transmission>
 
   <transmission name="transmission_shoulder">
     <plugin>transmission_interface/SimpleTransmission</plugin>
-    <actuator name="shoulder_servo" role="actuator1"/>
+    <actuator name="shoulder_servo" role="actuator1" />
     <joint name="Shoulder Rotate" role="joint1">
-        <mechanical_reduction>1.0</mechanical_reduction>
+      <mechanical_reduction>1.0</mechanical_reduction>
     </joint>
   </transmission>
 
   <transmission name="transmission_elbow">
     <plugin>transmission_interface/SimpleTransmission</plugin>
-    <actuator name="elbow_servo" role="actuator1"/>
+    <actuator name="elbow_servo" role="actuator1" />
     <joint name="Elbow Rotate" role="joint1">
-        <mechanical_reduction>1.0</mechanical_reduction>
+      <mechanical_reduction>1.0</mechanical_reduction>
     </joint>
   </transmission>
 
   <transmission name="transmission_wrist">
     <plugin>transmission_interface/SimpleTransmission</plugin>
-    <actuator name="wrist_servo" role="actuator1"/>
+    <actuator name="wrist_servo" role="actuator1" />
     <joint name="Wrist Rotate" role="joint1">
-        <mechanical_reduction>1.0</mechanical_reduction>
+      <mechanical_reduction>1.0</mechanical_reduction>
     </joint>
   </transmission>
 
   <transmission name="transmission_grab">
     <plugin>transmission_interface/SimpleTransmission</plugin>
-    <actuator name="grab_servo" role="actuator1"/>
+    <actuator name="grab_servo" role="actuator1" />
     <joint name="Gripper Grab" role="joint1">
-        <mechanical_reduction>1.0</mechanical_reduction>
+      <mechanical_reduction>1.0</mechanical_reduction>
     </joint>
   </transmission>
 
   <gazebo reference="lidar_scan_1">
-      <sensor name="laser" type="ray">
-          <pose>0 0 0 0 0 0</pose>
-          <visualize>true</visualize>
-          <update_rate>10</update_rate>
-          <ray>
-              <scan>
-                  <horizontal>
-                      <samples>360</samples>
-                      <resolution>1</resolution>
-                      <min_angle>-3.14</min_angle>
-                      <max_angle>3.14</max_angle>
-                  </horizontal>
-              </scan>
-              <range>
-                  <min>0.3</min>
-                  <max>12</max>
-                  <resolution>0.01</resolution>
-              </range>
-          </ray>
-          <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
-              <ros>
-                  <argument>~/out:=scan</argument>
-              </ros>
-              <output_type>sensor_msgs/LaserScan</output_type>
-              <frame_name>lidar_scan_1</frame_name>
-          </plugin>
-      </sensor>
+    <sensor name="laser" type="ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.3</min>
+          <max>12</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <argument>~/out:=scan</argument>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>lidar_scan_1</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="camera_1">
+    <sensor name="camera" type="camera">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <camera>
+        <horizontal_fov>1.089</horizontal_fov>
+        <image>
+          <format>R8G8B8</format>
+          <width>640</width>
+          <height>480</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>8.0</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <frame_name>camera_link_optical</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="my_mecanum_drive_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>50.0</odometryRate>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <publishTF>false</publishTF>
+    </plugin>
   </gazebo>
 
 </robot>
