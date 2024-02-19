@@ -35,6 +35,15 @@
     </collision>
   </link>
 
+  <link name="base_footprint">
+  </link>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  
   <link name="motor_1_1">
     <inertial>
       <origin xyz="-0.00774955233850215 -0.020211399277673958 0.01324521152783195" rpy="0 0 0" />
@@ -1312,9 +1321,9 @@
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-      <odometryRate>50.0</odometryRate>
-      <robotBaseFrame>base_link</robotBaseFrame>
-      <publishTF>false</publishTF>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <publishTF>true</publishTF>
     </plugin>
   </gazebo>
 
