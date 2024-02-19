@@ -1318,4 +1318,168 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="base_link">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="motor_1_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="motor_2_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="motor_3_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="motor_4_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="coupling_1_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="coupling_2_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="coupling_3_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="coupling_4_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="wheel_1_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_2_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_3_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_4_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="lidar_base_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="lidar_scan_1">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="tf_luna_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="servo_base_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="base_servo_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="base_horn_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="base_servo_rotate_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="servo_1_horn_1_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_1_horn_2_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="middle_plate_lower_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="middle_plate_upper_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="servo_2_horn_1_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_2_horn_2_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_2_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="upper_arm_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="wrist_servo_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="servo_3_horn_1_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_3_horn_2_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_3_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wrist_end_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="gripper_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="gripper_servo_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="camera_1">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="end_effector_right_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="end_effector_left_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="servo_1_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="left_gripper_gear_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="right_gripper_gear_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
 </robot>
