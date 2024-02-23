@@ -11,6 +11,16 @@
   <xacro:property name="effort" value="30.0" />
   <xacro:property name="velocity" value="10.0" />
 
+  <link name ="base_footprint">
+  </link>
+  <joint name="footprint_joint" type="fixed">
+       <origin
+              xyz="0.0 0.0 0.0"
+              rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="base_link"/>  
+  </joint>
+
   <link name="base_link">
     <inertial>
       <origin xyz="0.0009780545525355266 -0.008632686866408387 0.005555903945052927" rpy="0 0 0" />
@@ -35,15 +45,6 @@
     </collision>
   </link>
 
-  <link name="base_footprint">
-  </link>
-
-  <joint name="base_footprint_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </joint>
-  
   <link name="motor_1_1">
     <inertial>
       <origin xyz="-0.00774955233850215 -0.020211399277673958 0.01324521152783195" rpy="0 0 0" />
@@ -1317,13 +1318,12 @@
   </gazebo>
 
   <gazebo>
-    <plugin name="my_mecanum_drive_controller" filename="libgazebo_ros_planar_move.so">
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometryRate>20.0</odometryRate>
-      <robotBaseFrame>base_footprint</robotBaseFrame>
-      <publishTF>true</publishTF>
+      <robotBaseFrame>chasis</robotBaseFrame>
     </plugin>
   </gazebo>
 

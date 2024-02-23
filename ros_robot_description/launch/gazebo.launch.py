@@ -15,21 +15,29 @@ def generate_launch_description():
     ros_robot_description_share = os.path.join(get_package_prefix('ros_robot_description'), 'share')
     gazebo_ros_dir = get_package_share_directory('gazebo_ros')
 
-    model_arg = DeclareLaunchArgument(name='model', default_value=os.path.join(
-                                        ros_robot_description_dir, 'urdf', 'ros_robot.xacro'
-                                        ),
-                                      description='Absolute path to robot urdf file'
+    # Declare a launch argument to control whether to use sim time
+    use_sim_time_arg = DeclareLaunchArgument(
+        name='use_sim_time',
+        default_value='true',
+        description='Whether to use simulated time or not'
     )
 
+    # Set Gazebo model path environment variable
     env_var = SetEnvironmentVariable('GAZEBO_MODEL_PATH', ros_robot_description_share)
 
-    robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]),
-                                       value_type=str)
+    model_arg = DeclareLaunchArgument(
+        name='model',
+        default_value=os.path.join(ros_robot_description_dir, 'urdf', 'ros_robot.xacro'),
+        description='Absolute path to robot urdf file'
+    )
+
+    robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]), value_type=str)
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        parameters=[{'robot_description': robot_description}]
+        parameters=[{'robot_description': robot_description, 'use_sim_time': True}]
+        # Setting 'use_sim_time' to True for robot_state_publisher node
     )
 
     start_gazebo_server = IncludeLaunchDescription(
@@ -44,14 +52,17 @@ def generate_launch_description():
         )
     )
 
-    spawn_robot = Node(package='gazebo_ros', executable='spawn_entity.py',
-                        arguments=['-entity', 'ros_robot',
-                                   '-topic', 'robot_description',
-                                  ],
-                        output='screen'
+    spawn_robot = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=['-entity', 'ros_robot', '-topic', 'robot_description'],
+        output='screen',
+        parameters=[{'use_sim_time': True}]  
+        # Setting 'use_sim_time' to True for spawn_robot node
     )
 
     return LaunchDescription([
+        use_sim_time_arg,  # Add the use_sim_time launch argument
         env_var,
         model_arg,
         start_gazebo_server,
