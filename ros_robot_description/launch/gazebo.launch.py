@@ -15,6 +15,16 @@ def generate_launch_description():
     ros_robot_description_share = os.path.join(get_package_prefix('ros_robot_description'), 'share')
     gazebo_ros_dir = get_package_share_directory('gazebo_ros')
 
+    world_file_arg = DeclareLaunchArgument(
+        name='world',
+        default_value=os.path.join(
+            get_package_share_directory('ros_robot_description'),
+            'world',
+            'my_world'
+        ),
+        description='Path to the Gazebo world file'
+    )
+
     # Declare a launch argument to control whether to use sim time
     use_sim_time_arg = DeclareLaunchArgument(
         name='use_sim_time',
@@ -43,7 +53,8 @@ def generate_launch_description():
     start_gazebo_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(gazebo_ros_dir, 'launch', 'gzserver.launch.py')
-        )
+        ),
+        launch_arguments={'world': LaunchConfiguration('world')}.items()
     )
 
     start_gazebo_client = IncludeLaunchDescription(
@@ -62,6 +73,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        world_file_arg,
         use_sim_time_arg,  # Add the use_sim_time launch argument
         env_var,
         model_arg,
