@@ -1,0 +1,80 @@
+[0.087s] Invoking command in '/home/shubham/be_project_ws/build/ros_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/ros_robot_description -- -j16 -l16
+[0.103s] -- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.212s] -- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)
+[0.258s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.315s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.318s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.319s] -- Added test 'lint_cmake' to check CMake code style
+[0.319s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.321s] -- Added test 'xmllint' to check XML markup files
+[0.322s] -- Configuring done
+[0.327s] -- Generating done
+[0.329s] -- Build files have been written to: /home/shubham/be_project_ws/build/ros_robot_description
+[0.351s] Invoked command in '/home/shubham/be_project_ws/build/ros_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/ros_robot_description -- -j16 -l16
+[0.413s] Invoking command in '/home/shubham/be_project_ws/build/ros_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --install /home/shubham/be_project_ws/build/ros_robot_description
+[0.418s] -- Install configuration: ""
+[0.419s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/launch
+[0.419s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/launch/gazebo.launch.py
+[0.419s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/launch/display.launch.py
+[0.419s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes
+[0.419s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/lidar_base_1.stl
+[0.419s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/gripper_plate_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_2_horn_2_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/coupling_1_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wrist_servo_plate_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/end_effector_left_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/motor_1_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/base_horn_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/end_effector_right_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/right_gripper_gear_1.stl
+[0.420s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wheel_4_1.stl
+[0.423s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_base_plate_1.stl
+[0.423s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_1_horn_1_1.stl
+[0.423s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/base_servo_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/middle_plate_lower_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/gripper_servo_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_3_horn_1_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/coupling_2_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/motor_2_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/middle_plate_upper_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_2_horn_1_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_3_horn_2_1.stl
+[0.424s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_2_1.stl
+[0.425s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/coupling_4_1.stl
+[0.425s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/camera_1.stl
+[0.425s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/motor_4_1.stl
+[0.425s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/motor_3_1.stl
+[0.425s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/tf_luna_1.stl
+[0.425s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/upper_arm_1.stl
+[0.425s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/coupling_3_1.stl
+[0.426s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wheel_3_1.stl
+[0.428s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wrist_end_plate_1.stl
+[0.429s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/left_gripper_gear_1.stl
+[0.429s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_1_horn_2_1.stl
+[0.429s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wheel_1_1.stl
+[0.431s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/base_link.stl
+[0.432s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_3_1.stl
+[0.432s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wheel_2_1.stl
+[0.435s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_1_1.stl
+[0.435s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/lidar_scan_1.stl
+[0.435s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/base_servo_rotate_plate_1.stl
+[0.435s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/urdf
+[0.435s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/urdf/materials.xacro
+[0.435s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/urdf/ros_robot.xacro
+[0.435s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/rviz
+[0.436s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ament_index/resource_index/package_run_dependencies/ros_robot_description
+[0.436s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ament_index/resource_index/parent_prefix_path/ros_robot_description
+[0.436s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/environment/ament_prefix_path.sh
+[0.436s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/environment/ament_prefix_path.dsv
+[0.436s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/environment/path.sh
+[0.436s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/environment/path.dsv
+[0.436s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/local_setup.bash
+[0.436s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/local_setup.sh
+[0.436s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/local_setup.zsh
+[0.436s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/local_setup.dsv
+[0.437s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/package.dsv
+[0.437s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ament_index/resource_index/packages/ros_robot_description
+[0.437s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/cmake/ros_robot_descriptionConfig.cmake
+[0.437s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/cmake/ros_robot_descriptionConfig-version.cmake
+[0.437s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/package.xml
+[0.495s] Invoked command in '/home/shubham/be_project_ws/build/ros_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --install /home/shubham/be_project_ws/build/ros_robot_description

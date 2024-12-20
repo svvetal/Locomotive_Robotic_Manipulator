@@ -1,0 +1,56 @@
+[0.237s] Invoking command in '/home/shubham/be_project_ws/build/robotic_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/robotic_arm_description -- -j16 -l16
+[0.269s] Invoked command in '/home/shubham/be_project_ws/build/robotic_arm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/robotic_arm_description -- -j16 -l16
+[0.294s] Invoking command in '/home/shubham/be_project_ws/build/robotic_arm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --install /home/shubham/be_project_ws/build/robotic_arm_description
+[0.302s] -- Install configuration: ""
+[0.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/launch
+[0.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/launch/gazebo.launch.py
+[0.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/launch/display.launch.py
+[0.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes
+[0.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/gripper_plate_1.stl
+[0.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_2_horn_2_1.stl
+[0.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/wrist_servo_plate_1.stl
+[0.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/base_horn_1.stl
+[0.303s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/right_arm_1.stl
+[0.303s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/right_gear_1.stl
+[0.304s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_1_horn_1_1.stl
+[0.304s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/middle_servo_plate_1.stl
+[0.304s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/base_servo_1.stl
+[0.304s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/left_arm_1.stl
+[0.304s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/gripper_servo_1.stl
+[0.305s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_3_horn_1_1.stl
+[0.305s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/middle_plate_upper_1.stl
+[0.305s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_2_horn_1_1.stl
+[0.305s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_3_horn_2_1.stl
+[0.305s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_2_1.stl
+[0.306s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/camera_1.stl
+[0.306s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/upper_arm_1.stl
+[0.306s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/wrist_end_plate_1.stl
+[0.306s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_1_horn_2_1.stl
+[0.306s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/base_link.stl
+[0.306s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_3_1.stl
+[0.307s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/left_gear_1.stl
+[0.307s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/servo_1_1.stl
+[0.307s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/meshes/base_servo_rotate_plate_1.stl
+[0.307s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/urdf
+[0.308s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/urdf/robotic_arm_gazebo.xacro
+[0.309s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/urdf/robotic_arm.xacro
+[0.309s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/urdf/materials.xacro
+[0.309s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/urdf/robotic_arm_ros2_control.xacro
+[0.309s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/rviz
+[0.309s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/rviz/display.rviz
+[0.310s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/ament_index/resource_index/package_run_dependencies/robotic_arm_description
+[0.310s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/ament_index/resource_index/parent_prefix_path/robotic_arm_description
+[0.310s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/environment/ament_prefix_path.sh
+[0.314s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/environment/ament_prefix_path.dsv
+[0.315s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/environment/path.sh
+[0.316s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/environment/path.dsv
+[0.316s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/local_setup.bash
+[0.316s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/local_setup.sh
+[0.317s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/local_setup.zsh
+[0.317s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/local_setup.dsv
+[0.317s] -- Installing: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/package.dsv
+[0.323s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/ament_index/resource_index/packages/robotic_arm_description
+[0.323s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/cmake/robotic_arm_descriptionConfig.cmake
+[0.323s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/cmake/robotic_arm_descriptionConfig-version.cmake
+[0.323s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_description/share/robotic_arm_description/package.xml
+[0.372s] Invoked command in '/home/shubham/be_project_ws/build/robotic_arm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --install /home/shubham/be_project_ws/build/robotic_arm_description

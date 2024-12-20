@@ -1,0 +1,1494 @@
+<?xml version="1.0"?>
+<robot name="ros_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="materials.xacro" />
+  <xacro:include filename="$(find ros_robot_description)/urdf/ros_robot_gazebo.xacro" />
+  <xacro:include filename="$(find ros_robot_description)/urdf/ros_robot_ros2_control.xacro" />
+
+
+  <!-- Useful XACRO Variables (Properties) -->
+  <xacro:property name="PI" value="3.14159265359" />
+  <xacro:property name="effort" value="30.0" />
+  <xacro:property name="velocity" value="10.0" />
+
+  <link name ="base_footprint">
+  </link>
+  <joint name="footprint_joint" type="fixed">
+       <origin
+              xyz="0.0 0.0 0.0"
+              rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="base_link"/>  
+  </joint>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0009780545525355266 -0.008632686866408387 0.005555903945052927" rpy="0 0 0" />
+      <mass value="2.875140574228567" />
+      <inertia ixx="0.021553" iyy="0.032688" izz="0.0529" ixy="6.5e-05" iyz="-1.1e-05"
+        ixz="0.000267" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/base_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/base_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="motor_1_1">
+    <inertial>
+      <origin xyz="-0.00774955233850215 -0.020211399277673958 0.01324521152783195" rpy="0 0 0" />
+      <mass value="0.33945096964014315" />
+      <inertia ixx="8.7e-05" iyy="5.1e-05" izz="8.6e-05" ixy="0.0" iyz="2e-06" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.117811 -0.112994 0.026978" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/motor_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="-0.117811 -0.112994 0.026978" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/motor_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="motor_3_1">
+    <inertial>
+      <origin xyz="-0.00774955233850233 -0.020211399277674055 0.013245211527831985" rpy="0 0 0" />
+      <mass value="0.33945096964014315" />
+      <inertia ixx="8.7e-05" iyy="5.1e-05" izz="8.6e-05" ixy="0.0" iyz="2e-06" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.112189 -0.112994 0.026978" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/motor_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.112189 -0.112994 0.026978" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/motor_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="motor_2_1">
+    <inertial>
+      <origin xyz="-0.007749552338480889 0.020210555760148033 0.013245211527830912" rpy="0 0 0" />
+      <mass value="0.33945096964014315" />
+      <inertia ixx="8.7e-05" iyy="5.1e-05" izz="8.6e-05" ixy="0.0" iyz="-2e-06" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.117811 0.131006 0.026978" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/motor_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="-0.117811 0.131006 0.026978" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/motor_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="motor_4_1">
+    <inertial>
+      <origin xyz="-0.007749552338481097 0.020210555760147964 0.013245211527830994" rpy="0 0 0" />
+      <mass value="0.33945096964014315" />
+      <inertia ixx="8.7e-05" iyy="5.1e-05" izz="8.6e-05" ixy="0.0" iyz="-2e-06" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.112189 0.131006 0.026978" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/motor_4_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.112189 0.131006 0.026978" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/motor_4_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="coupling_1_1">
+    <inertial>
+      <origin xyz="4.476615996090727e-07 0.013573780534901561 -2.5902744730382787e-08" rpy="0 0 0" />
+      <mass value="0.11904891103654269" />
+      <inertia ixx="2.5e-05" iyy="4.8e-05" izz="2.5e-05" ixy="0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.110061 -0.118994 0.020555" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/coupling_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.110061 -0.118994 0.020555" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/coupling_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="coupling_3_1">
+    <inertial>
+      <origin xyz="4.4766159944253925e-07 0.01357378053490145 -2.5902744695688318e-08" rpy="0 0 0" />
+      <mass value="0.11904891103654269" />
+      <inertia ixx="2.5e-05" iyy="4.8e-05" izz="2.5e-05" ixy="0.0" iyz="0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.119939 -0.118994 0.020555" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/coupling_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.119939 -0.118994 0.020555" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/coupling_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="coupling_2_1">
+    <inertial>
+      <origin xyz="4.4766151748032446e-07 -0.01357462405242757 -2.5902835244784317e-08" rpy="0 0 0" />
+      <mass value="0.11904891103654269" />
+      <inertia ixx="2.5e-05" iyy="4.8e-05" izz="2.5e-05" ixy="-0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.110061 0.137006 0.020555" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/coupling_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.110061 0.137006 0.020555" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/coupling_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="coupling_4_1">
+    <inertial>
+      <origin xyz="4.476614223897224e-07 -0.013574624052427514 -2.5902715489883876e-08" rpy="0 0 0" />
+      <mass value="0.11904891103654269" />
+      <inertia ixx="2.5e-05" iyy="4.8e-05" izz="2.5e-05" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.119939 0.137006 0.020555" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/coupling_4_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.119939 0.137006 0.020555" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/coupling_4_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_1_1">
+    <inertial>
+      <origin xyz="-0.010771552342589003 0.024902196308159097 -0.02116702585460686" rpy="0 0 0" />
+      <mass value="1.5332542330352579" />
+      <inertia ixx="0.001229" iyy="0.001928" izz="0.001229" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.120833 -0.135994 -0.000612" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wheel_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.120833 -0.135994 -0.000612" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wheel_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_3_1">
+    <inertial>
+      <origin xyz="0.012944447617770444 0.02490219630815907 -0.019912025882224564" rpy="0 0 0" />
+      <mass value="1.5332542330352579" />
+      <inertia ixx="0.001229" iyy="0.001928" izz="0.001229" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.132883 -0.135994 0.000643" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wheel_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0.132883 -0.135994 0.000643" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wheel_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_2_1">
+    <inertial>
+      <origin xyz="0.0010315027241703245 -0.02509996032148959 -0.023728035166305405" rpy="0 0 0" />
+      <mass value="1.5332542330352579" />
+      <inertia ixx="0.001229" iyy="0.001928" izz="0.001229" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.109053 0.154006 -0.003174" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wheel_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.109053 0.154006 -0.003174" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wheel_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_4_1">
+    <inertial>
+      <origin xyz="0.0030453349980268524 -0.025099960321489367 -0.02355407848013482" rpy="0 0 0" />
+      <mass value="1.5332542330352579" />
+      <inertia ixx="0.001229" iyy="0.001928" izz="0.001229" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.122961 0.154006 -0.003002" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wheel_4_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0.122961 0.154006 -0.003002" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wheel_4_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="lidar_base_1">
+    <inertial>
+      <origin xyz="-0.020000194239811683 -0.027179991564477174 0.018937028726313733" rpy="0 0 0" />
+      <mass value="0.44920458692996124" />
+      <inertia ixx="0.000326" iyy="0.000127" izz="0.000427" ixy="-0.0" iyz="2.4e-05" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.131819 -0.020994 -0.016945" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/lidar_base_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.131819 -0.020994 -0.016945" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/lidar_base_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="lidar_scan_1">
+    <inertial>
+      <origin xyz="-0.0008278242400512198 -0.045264043947768624 0.011160911163399859" rpy="0 0 0" />
+      <mass value="0.6714389077490024" />
+      <inertia ixx="0.000247" iyy="0.000234" izz="0.000417" ixy="7e-06" iyz="4e-06" ixz="2e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.111819 -0.021666 -0.042545" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/lidar_scan_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <collision>
+      <origin xyz="-0.111819 -0.021666 -0.042545" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/lidar_scan_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tf_luna_1">
+    <inertial>
+      <origin xyz="0.005933076501775658 -0.015250421757469834 -0.0009741103784083258" rpy="0 0 0" />
+      <mass value="0.006343339191276961" />
+      <inertia ixx="1e-06" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.164204 -0.006244 0.016865" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/tf_luna_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.164204 -0.006244 0.016865" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/tf_luna_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_base_plate_1">
+    <inertial>
+      <origin xyz="-0.025000193025610885 -0.04000042175876296 0.017038907107445767" rpy="0 0 0" />
+      <mass value="0.17309645088621076" />
+      <inertia ixx="0.000175" iyy="0.000125" izz="0.000244" ixy="-0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.056819 -0.030994 -0.016945" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_base_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.056819 -0.030994 -0.016945" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_base_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_servo_1">
+    <inertial>
+      <origin xyz="-0.023942476903592753 0.004924521517921103 -0.008651137699313971" rpy="0 0 0" />
+      <mass value="0.041252406212074204" />
+      <inertia ixx="1.2e-05" iyy="1.8e-05" izz="1e-05" ixy="-0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.056569 0.014006 -0.048945" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/base_servo_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.056569 0.014006 -0.048945" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/base_servo_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_horn_1">
+    <inertial>
+      <origin xyz="-3.386437212316018e-07 -4.217587627457914e-07 0.000679121041506775" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.041958 0.009081 -0.065195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/base_horn_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="-0.041958 0.009081 -0.065195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/base_horn_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_servo_rotate_plate_1">
+    <inertial>
+      <origin xyz="-3.386435971433621e-07 -4.217587767797043e-07 0.010220484678109001" rpy="0 0 0" />
+      <mass value="0.05748053549522376" />
+      <inertia ixx="3.7e-05" iyy="1.4e-05" izz="3.4e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.041958 0.009081 -0.067195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/base_servo_rotate_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.041958 0.009081 -0.067195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/base_servo_rotate_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_1_horn_1_1">
+    <inertial>
+      <origin xyz="-3.3864350146989297e-07 0.0013204312969849544 -0.007000025902745774" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.041958 0.035081 -0.108195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_1_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="-0.041958 0.035081 -0.108195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_1_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_1_horn_2_1">
+    <inertial>
+      <origin xyz="-3.386435011229483e-07 -0.0013212748145105657 -0.007000025902745496" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.041958 -0.016919 -0.108195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_1_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="-0.041958 -0.016919 -0.108195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_1_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="middle_plate_lower_1">
+    <inertial>
+      <origin xyz="-0.06256956706420823 0.009406394867581649 0.09307905698461949" rpy="0 0 0" />
+      <mass value="0.07999879730128946" />
+      <inertia ixx="3e-05" iyy="2.8e-05" izz="4.4e-05" ixy="-1e-06" iyz="-0.0" ixz="1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.06132 0.02 -0.002575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/middle_plate_lower_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.06132 0.02 -0.002575" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/middle_plate_lower_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="middle_plate_upper_1">
+    <inertial>
+      <origin xyz="-0.031910955318972194 0.009999578241244684 -0.012992627479989347" rpy="0 0 0" />
+      <mass value="0.10898418485931341" />
+      <inertia ixx="6.4e-05" iyy="7.1e-05" izz="0.000115" ixy="-0.0" iyz="-0.0" ixz="-2e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.022042 0.021081 -0.108195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/middle_plate_upper_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.022042 0.021081 -0.108195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/middle_plate_upper_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_2_horn_1_1">
+    <inertial>
+      <origin xyz="-3.3864349593959453e-07 0.0013204312969863907 -0.007000025902750201" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.095042 0.037081 -0.107695" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_2_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.095042 0.037081 -0.107695" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_2_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_2_horn_2_1">
+    <inertial>
+      <origin xyz="-3.3864349548162753e-07 -0.0013212748145090217 -0.00700002590275027" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.095042 -0.014919 -0.107695" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_2_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.095042 -0.014919 -0.107695" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_2_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_2_1">
+    <inertial>
+      <origin xyz="0.006922762418235001 0.020952946802716595 0.006988098861320444" rpy="0 0 0" />
+      <mass value="0.033717792574252975" />
+      <inertia ixx="7e-06" iyy="6e-06" izz="7e-06" ixy="-0.0" iyz="-0.0" ixz="-2e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.095042 0.032581 -0.100695" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0.095042 0.032581 -0.100695" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="upper_arm_1">
+    <inertial>
+      <origin xyz="-0.09893911444946427 -0.008918421758756357 0.05430097201409352" rpy="0 0 0" />
+      <mass value="0.14353366516398364" />
+      <inertia ixx="0.000121" iyy="0.000169" izz="0.000128" ixy="-0.0" iyz="-0.0" ixz="-7.3e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.043365 0.002163 -0.09782" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/upper_arm_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.043365 0.002163 -0.09782" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/upper_arm_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wrist_servo_plate_1">
+    <inertial>
+      <origin xyz="0.011540027128101222 0.009999578241220922 0.0008975749240610897" rpy="0 0 0" />
+      <mass value="0.04064477064241212" />
+      <inertia ixx="2.3e-05" iyy="6e-06" izz="2.3e-05" ixy="-0.0" iyz="-0.0" ixz="-1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.020089 0.021081 -0.186255" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wrist_servo_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.020089 0.021081 -0.186255" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wrist_servo_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_3_horn_1_1">
+    <inertial>
+      <origin xyz="0.0049501482433983845 0.0013204312969856413 -0.004949432234547357" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.003133 0.037081 -0.203211" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_3_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.003133 0.037081 -0.203211" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_3_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_3_horn_2_1">
+    <inertial>
+      <origin xyz="0.004950148243398473 -0.0013212748145098926 -0.004949432234547357" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.003133 -0.014919 -0.203211" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_3_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.003133 -0.014919 -0.203211" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_3_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_3_1">
+    <inertial>
+      <origin xyz="0.009795431354183117 0.02095294680271583 0.0009026983255537857" rpy="0 0 0" />
+      <mass value="0.033717792574252975" />
+      <inertia ixx="6e-06" iyy="6e-06" izz="9e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.001817 0.032581 -0.198262" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.001817 0.032581 -0.198262" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wrist_end_plate_1">
+    <inertial>
+      <origin xyz="0.02459678302224108 -0.009466163196800942 0.20823317683666187" rpy="0 0 0" />
+      <mass value="0.07124665161583428" />
+      <inertia ixx="5e-05" iyy="3.5e-05" izz="2.4e-05" ixy="-1e-06" iyz="-1e-06" ixz="-4e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.013555 0.002163 -0.009169" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wrist_end_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.013555 0.002163 -0.009169" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/wrist_end_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gripper_plate_1">
+    <inertial>
+      <origin xyz="0.019444300103962794 0.013909211369954343 -0.006229104409765096" rpy="0 0 0" />
+      <mass value="0.13706160871868234" />
+      <inertia ixx="7.9e-05" iyy="5.3e-05" izz="9.5e-05" ixy="-1e-06" iyz="1e-06" ixz="2e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.04504 0.021081 -0.20907" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/gripper_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.04504 0.021081 -0.20907" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/gripper_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gripper_servo_1">
+    <inertial>
+      <origin xyz="-0.003942970519472136 0.023941862119219837 -0.011438744381671834" rpy="0 0 0" />
+      <mass value="0.041252406212074204" />
+      <inertia ixx="1.8e-05" iyy="1.2e-05" izz="1e-05" ixy="0.0" iyz="-0.0" ixz="1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.081998 0.035831 -0.188212" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/gripper_servo_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.081998 0.035831 -0.188212" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/gripper_servo_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="camera_1">
+    <inertial>
+      <origin xyz="0.007299247944751182 0.01699957824123851 -0.016426636642410924" rpy="0 0 0" />
+      <mass value="0.040919999999949795" />
+      <inertia ixx="5e-06" iyy="4e-06" izz="4e-06" ixy="-0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.04103 0.028081 -0.254895" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/camera_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <collision>
+      <origin xyz="-0.04103 0.028081 -0.254895" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/camera_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="camera_link_optical"></link>
+
+  <link name="end_effector_right_1">
+    <inertial>
+      <origin xyz="0.023074749323015745 0.005069284828878744 0.0005135274521786137" rpy="0 0 0" />
+      <mass value="0.011641926595302913" />
+      <inertia ixx="0.0" iyy="3e-06" izz="3e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.09659 0.044052 -0.204545" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/end_effector_right_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin xyz="-0.09659 0.044052 -0.204545" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/end_effector_right_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="end_effector_left_1">
+    <inertial>
+      <origin xyz="0.022884084430007834 -0.005869918028385542 0.0004960871437295622" rpy="0 0 0" />
+      <mass value="0.011641926595302913" />
+      <inertia ixx="0.0" iyy="3e-06" izz="3e-06" ixy="1e-06" iyz="0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.096307 -0.029023 -0.204521" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/end_effector_left_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin xyz="-0.096307 -0.029023 -0.204521" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/end_effector_left_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_1_1">
+    <inertial>
+      <origin xyz="-0.009837060759731162 -0.026453790320240776 4.5952798038081943e-05" rpy="0 0 0" />
+      <mass value="0.033717792574252975" />
+      <inertia ixx="6e-06" iyy="6e-06" izz="9e-06" ixy="-0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.041958 -0.015919 -0.101195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.041958 -0.015919 -0.101195" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/servo_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_gripper_gear_1">
+    <inertial>
+      <origin xyz="0.00387280502227115 0.0042341063494244985 -0.001167089153666201" rpy="0 0 0" />
+      <mass value="0.015461499275042243" />
+      <inertia ixx="2e-06" iyy="1e-06" izz="3e-06" ixy="-1e-06" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.075523 -0.005857 -0.205714" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/left_gripper_gear_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin xyz="-0.075523 -0.005857 -0.205714" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/left_gripper_gear_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_gripper_gear_1">
+    <inertial>
+      <origin xyz="0.003934166464295841 -0.004177779966014893 -0.0011617207231112703" rpy="0 0 0" />
+      <mass value="0.015461499275042243" />
+      <inertia ixx="2e-06" iyy="1e-06" izz="3e-06" ixy="1e-06" iyz="0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.075523 0.021143 -0.205714" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/right_gripper_gear_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin xyz="-0.075523 0.021143 -0.205714" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros_robot_description/meshes/right_gripper_gear_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Rigid 1" type="fixed">
+    <origin xyz="0.117811 0.112994 -0.026978" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="motor_1_1" />
+  </joint>
+
+  <joint name="Rigid 2" type="fixed">
+    <origin xyz="-0.112189 0.112994 -0.026978" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="motor_3_1" />
+  </joint>
+
+  <joint name="Rigid 3" type="fixed">
+    <origin xyz="0.117811 -0.131006 -0.026978" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="motor_2_1" />
+  </joint>
+
+  <joint name="Rigid 4" type="fixed">
+    <origin xyz="-0.112189 -0.131006 -0.026978" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="motor_4_1" />
+  </joint>
+
+  <joint name="Revolute 5" type="continuous">
+    <origin xyz="-0.00775 0.006 0.006423" rpy="0 0 0" />
+    <parent link="motor_1_1" />
+    <child link="coupling_1_1" />
+    <axis xyz="0.0 -1.0 -0.0" />
+  </joint>
+
+  <joint name="Revolute 6" type="continuous">
+    <origin xyz="-0.00775 0.006 0.006423" rpy="0 0 0" />
+    <parent link="motor_3_1" />
+    <child link="coupling_3_1" />
+    <axis xyz="0.0 -1.0 -0.0" />
+  </joint>
+
+  <joint name="Revolute 7" type="continuous">
+    <origin xyz="-0.00775 -0.006 0.006423" rpy="0 0 0" />
+    <parent link="motor_2_1" />
+    <child link="coupling_2_1" />
+    <axis xyz="-0.0 1.0 0.0" />
+  </joint>
+
+  <joint name="Revolute 8" type="continuous">
+    <origin xyz="-0.00775 -0.006 0.006423" rpy="0 0 0" />
+    <parent link="motor_4_1" />
+    <child link="coupling_4_1" />
+    <axis xyz="0.0 1.0 0.0" />
+  </joint>
+
+  <joint name="Rigid 9" type="fixed">
+    <origin xyz="0.010772 0.017 0.021167" rpy="0 0 0" />
+    <parent link="coupling_1_1" />
+    <child link="wheel_1_1" />
+  </joint>
+
+  <joint name="Rigid 10" type="fixed">
+    <origin xyz="-0.012944 0.017 0.019912" rpy="0 0 0" />
+    <parent link="coupling_3_1" />
+    <child link="wheel_3_1" />
+  </joint>
+
+  <joint name="Rigid 11" type="fixed">
+    <origin xyz="-0.001008 -0.017 0.023729" rpy="0 0 0" />
+    <parent link="coupling_2_1" />
+    <child link="wheel_2_1" />
+  </joint>
+
+  <joint name="Rigid 12" type="fixed">
+    <origin xyz="-0.003022 -0.017 0.023557" rpy="0 0 0" />
+    <parent link="coupling_4_1" />
+    <child link="wheel_4_1" />
+  </joint>
+
+  <joint name="Rigid 13" type="fixed">
+    <origin xyz="0.131819 0.020994 0.016945" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="lidar_base_1" />
+  </joint>
+
+  <joint name="Rigid 14" type="fixed">
+    <origin xyz="-0.02 0.000672 0.0256" rpy="0 0 0" />
+    <parent link="lidar_base_1" />
+    <child link="lidar_scan_1" />
+  </joint>
+
+  <joint name="Rigid 15" type="fixed">
+    <origin xyz="0.164204 0.006244 -0.016865" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="tf_luna_1" />
+  </joint>
+
+  <joint name="Rigid 16" type="fixed">
+    <origin xyz="0.056819 0.030994 0.016945" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="servo_base_plate_1" />
+  </joint>
+
+  <joint name="Rigid 17" type="fixed">
+    <origin xyz="-0.00025 -0.045 0.032" rpy="0 0 0" />
+    <parent link="servo_base_plate_1" />
+    <child link="base_servo_1" />
+  </joint>
+
+  <joint name="Base Rotate" type="continuous">
+    <origin xyz="-0.014611 0.004925 0.01625" rpy="0 0 0" />
+    <parent link="base_servo_1" />
+    <child link="base_horn_1" />
+    <axis xyz="-0.0 0.0 1.0" />
+  </joint>
+
+  <joint name="Rigid 19" type="fixed">
+    <origin xyz="0.0 0.0 0.002" rpy="0 0 0" />
+    <parent link="base_horn_1" />
+    <child link="base_servo_rotate_plate_1" />
+  </joint>
+
+  <joint name="Rigid 20" type="fixed">
+    <origin xyz="0.0 -0.026 0.041" rpy="0 0 0" />
+    <parent link="base_servo_rotate_plate_1" />
+    <child link="servo_1_horn_1_1" />
+  </joint>
+
+  <joint name="Rigid 21" type="fixed">
+    <origin xyz="0.0 0.026 0.041" rpy="0 0 0" />
+    <parent link="base_servo_rotate_plate_1" />
+    <child link="servo_1_horn_2_1" />
+  </joint>
+
+  <joint name="Rigid 23" type="fixed">
+    <origin xyz="0.019362 -0.035919 -0.09862" rpy="0 0 0" />
+    <parent link="servo_1_1" />
+    <child link="middle_plate_lower_1" />
+  </joint>
+
+  <joint name="Rigid 24" type="fixed">
+    <origin xyz="-0.083362 -0.001081 0.10562" rpy="0 0 0" />
+    <parent link="middle_plate_lower_1" />
+    <child link="middle_plate_upper_1" />
+  </joint>
+
+  <joint name="Rigid 25" type="fixed">
+    <origin xyz="-0.073 -0.016 -0.0005" rpy="0 0 0" />
+    <parent link="middle_plate_upper_1" />
+    <child link="servo_2_horn_1_1" />
+  </joint>
+
+  <joint name="Rigid 26" type="fixed">
+    <origin xyz="-0.073 0.036 -0.0005" rpy="0 0 0" />
+    <parent link="middle_plate_upper_1" />
+    <child link="servo_2_horn_2_1" />
+  </joint>
+
+  <joint name="Elbow Rotate" type="continuous">
+    <origin xyz="0.0 0.0045 -0.007" rpy="0 0 0" />
+    <parent link="servo_2_horn_1_1" />
+    <child link="servo_2_1" />
+    <axis xyz="0.0 1.0 -0.0" />
+  </joint>
+
+  <joint name="Rigid 28" type="fixed">
+    <origin xyz="0.138407 0.030418 -0.002875" rpy="0 0 0" />
+    <parent link="servo_2_1" />
+    <child link="upper_arm_1" />
+  </joint>
+
+  <joint name="Rigid 29" type="fixed">
+    <origin xyz="-0.063454 -0.018918 0.088435" rpy="0 0 0" />
+    <parent link="upper_arm_1" />
+    <child link="wrist_servo_plate_1" />
+  </joint>
+
+  <joint name="Rigid 30" type="fixed">
+    <origin xyz="0.016956 -0.016 0.016956" rpy="0 0 0" />
+    <parent link="wrist_servo_plate_1" />
+    <child link="servo_3_horn_1_1" />
+  </joint>
+
+  <joint name="Rigid 31" type="fixed">
+    <origin xyz="0.016956 0.036 0.016956" rpy="0 0 0" />
+    <parent link="wrist_servo_plate_1" />
+    <child link="servo_3_horn_2_1" />
+  </joint>
+
+  <joint name="Wrist Rotate" type="continuous">
+    <origin xyz="0.00495 0.0045 -0.004949" rpy="0 0 0" />
+    <parent link="servo_3_horn_1_1" />
+    <child link="servo_3_1" />
+    <axis xyz="-0.0 1.0 -0.0" />
+  </joint>
+
+  <joint name="Rigid 33" type="fixed">
+    <origin xyz="0.011738 0.030418 -0.189093" rpy="0 0 0" />
+    <parent link="servo_3_1" />
+    <child link="wrist_end_plate_1" />
+  </joint>
+
+  <joint name="Rigid 34" type="fixed">
+    <origin xyz="0.031485 -0.018918 0.199901" rpy="0 0 0" />
+    <parent link="wrist_end_plate_1" />
+    <child link="gripper_plate_1" />
+  </joint>
+
+  <joint name="Rigid 35" type="fixed">
+    <origin xyz="0.036958 -0.01475 -0.020858" rpy="0 0 0" />
+    <parent link="gripper_plate_1" />
+    <child link="gripper_servo_1" />
+  </joint>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.027475 -0.025918 0.245726" rpy="0 0 0" />
+    <parent link="wrist_end_plate_1" />
+    <child link="camera_1" />
+  </joint>
+
+  <joint name="camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+    <parent link="camera_1" />
+    <child link="camera_link_optical" />
+  </joint>
+
+  <joint name="Rigid 39" type="fixed">
+    <origin xyz="0.021067 -0.022909 -0.001169" rpy="0 0 0" />
+    <parent link="right_gripper_gear_1" />
+    <child link="end_effector_right_1" />
+  </joint>
+
+  <joint name="Rigid 41" type="fixed">
+    <origin xyz="0.020784 0.023166 -0.001193" rpy="0 0 0" />
+    <parent link="left_gripper_gear_1" />
+    <child link="end_effector_left_1" />
+  </joint>
+
+  <joint name="Shoulder Rotate" type="continuous">
+    <origin xyz="0.0 -0.001 -0.007" rpy="0 0 0" />
+    <parent link="servo_1_horn_2_1" />
+    <child link="servo_1_1" />
+    <axis xyz="-0.0 1.0 -0.0" />
+  </joint>
+
+  <joint name="Gripper Grab" type="continuous">
+    <origin xyz="0.030483 0.026938 -0.003356" rpy="0 0 0" />
+    <parent link="gripper_plate_1" />
+    <child link="left_gripper_gear_1" />
+    <axis xyz="-0.087156 0.0 0.996195" />
+  </joint>
+
+  <joint name="Revolute 44" type="continuous">
+    <origin xyz="0.030483 -6.2e-05 -0.003356" rpy="0 0 0" />
+    <parent link="gripper_plate_1" />
+    <child link="right_gripper_gear_1" />
+    <axis xyz="-0.087156 0.0 0.996195" />
+    <mimic joint="Gripper Grab" multiplier="-1" />
+  </joint>
+
+  <transmission name="transmission_base">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="base_servo" role="actuator1" />
+    <joint name="Base Rotate" role="joint1">
+      <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_shoulder">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="shoulder_servo" role="actuator1" />
+    <joint name="Shoulder Rotate" role="joint1">
+      <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_elbow">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="elbow_servo" role="actuator1" />
+    <joint name="Elbow Rotate" role="joint1">
+      <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_wrist">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="wrist_servo" role="actuator1" />
+    <joint name="Wrist Rotate" role="joint1">
+      <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_grab">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="grab_servo" role="actuator1" />
+    <joint name="Gripper Grab" role="joint1">
+      <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <gazebo reference="lidar_scan_1">
+    <sensor name="laser" type="ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.3</min>
+          <max>12</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <argument>~/out:=scan</argument>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>lidar_scan_1</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="camera_1">
+    <sensor name="camera" type="camera">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <camera>
+        <horizontal_fov>1.089</horizontal_fov>
+        <image>
+          <format>R8G8B8</format>
+          <width>640</width>
+          <height>480</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>8.0</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <frame_name>camera_link_optical</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>chasis</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="motor_1_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="motor_2_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="motor_3_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="motor_4_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="coupling_1_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="coupling_2_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="coupling_3_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="coupling_4_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="wheel_1_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_2_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_3_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_4_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="lidar_base_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="lidar_scan_1">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="tf_luna_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="servo_base_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="base_servo_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="base_horn_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="base_servo_rotate_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="servo_1_horn_1_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_1_horn_2_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="middle_plate_lower_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="middle_plate_upper_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="servo_2_horn_1_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_2_horn_2_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_2_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="upper_arm_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="wrist_servo_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="servo_3_horn_1_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_3_horn_2_1">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="servo_3_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wrist_end_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="gripper_plate_1">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="gripper_servo_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="camera_1">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="end_effector_right_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="end_effector_left_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="servo_1_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="left_gripper_gear_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="right_gripper_gear_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+</robot>

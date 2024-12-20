@@ -1,0 +1,26 @@
+[1.040s] Invoking command in '/home/shubham/be_project_ws/build/ros_robot_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/ros_robot_controller -- -j16 -l16
+[1.181s] Invoked command in '/home/shubham/be_project_ws/build/ros_robot_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/ros_robot_controller -- -j16 -l16
+[1.314s] Invoking command in '/home/shubham/be_project_ws/build/ros_robot_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --install /home/shubham/be_project_ws/build/ros_robot_controller
+[1.398s] -- Install configuration: ""
+[1.402s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/config
+[1.403s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/config/ros_robot_controllers.yaml
+[1.404s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/config/joystick.yaml
+[1.405s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/launch
+[1.406s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/launch/controller.launch.py
+[1.407s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/launch/joystick.launch.py
+[1.408s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ament_index/resource_index/package_run_dependencies/ros_robot_controller
+[1.408s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ament_index/resource_index/parent_prefix_path/ros_robot_controller
+[1.409s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/environment/ament_prefix_path.sh
+[1.409s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/environment/ament_prefix_path.dsv
+[1.410s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/environment/path.sh
+[1.411s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/environment/path.dsv
+[1.412s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/local_setup.bash
+[1.414s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/local_setup.sh
+[1.415s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/local_setup.zsh
+[1.416s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/local_setup.dsv
+[1.417s] -- Installing: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/package.dsv
+[1.418s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ament_index/resource_index/packages/ros_robot_controller
+[1.420s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/cmake/ros_robot_controllerConfig.cmake
+[1.421s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/cmake/ros_robot_controllerConfig-version.cmake
+[1.423s] -- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_controller/share/ros_robot_controller/package.xml
+[1.769s] Invoked command in '/home/shubham/be_project_ws/build/ros_robot_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --install /home/shubham/be_project_ws/build/ros_robot_controller

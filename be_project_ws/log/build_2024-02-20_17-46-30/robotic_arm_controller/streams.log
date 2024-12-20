@@ -1,0 +1,24 @@
+[1.980s] Invoking command in '/home/shubham/be_project_ws/build/robotic_arm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/robotic_arm_controller -- -j16 -l16
+[2.135s] Invoked command in '/home/shubham/be_project_ws/build/robotic_arm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/robotic_arm_controller -- -j16 -l16
+[2.268s] Invoking command in '/home/shubham/be_project_ws/build/robotic_arm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --install /home/shubham/be_project_ws/build/robotic_arm_controller
+[2.300s] -- Install configuration: ""
+[2.301s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/config
+[2.302s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/config/robotic_arm_controllers.yaml
+[2.303s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/launch
+[2.303s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/launch/controller.launch.py
+[2.304s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/ament_index/resource_index/package_run_dependencies/robotic_arm_controller
+[2.304s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/ament_index/resource_index/parent_prefix_path/robotic_arm_controller
+[2.305s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/environment/ament_prefix_path.sh
+[2.305s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/environment/ament_prefix_path.dsv
+[2.306s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/environment/path.sh
+[2.306s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/environment/path.dsv
+[2.307s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/local_setup.bash
+[2.307s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/local_setup.sh
+[2.308s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/local_setup.zsh
+[2.308s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/local_setup.dsv
+[2.308s] -- Installing: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/package.dsv
+[2.308s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/ament_index/resource_index/packages/robotic_arm_controller
+[2.309s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/cmake/robotic_arm_controllerConfig.cmake
+[2.311s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/cmake/robotic_arm_controllerConfig-version.cmake
+[2.315s] -- Up-to-date: /home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/package.xml
+[2.357s] Invoked command in '/home/shubham/be_project_ws/build/robotic_arm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --install /home/shubham/be_project_ws/build/robotic_arm_controller

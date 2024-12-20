@@ -1,0 +1,82 @@
+-- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)
+-- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/shubham/be_project_ws/build/ros_robot_description
+-- Install configuration: ""
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/launch
+-- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/launch/gazebo.launch.py
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/launch/display.launch.py
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/lidar_base_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/gripper_plate_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_2_horn_2_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/coupling_1_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wrist_servo_plate_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/end_effector_left_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/motor_1_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/base_horn_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/end_effector_right_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/right_gripper_gear_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wheel_4_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_base_plate_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_1_horn_1_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/base_servo_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/middle_plate_lower_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/gripper_servo_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_3_horn_1_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/coupling_2_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/motor_2_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/middle_plate_upper_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_2_horn_1_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_3_horn_2_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_2_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/coupling_4_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/camera_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/motor_4_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/motor_3_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/tf_luna_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/upper_arm_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/coupling_3_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wheel_3_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wrist_end_plate_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/left_gripper_gear_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_1_horn_2_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wheel_1_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/base_link.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_3_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/wheel_2_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/servo_1_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/lidar_scan_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/meshes/base_servo_rotate_plate_1.stl
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/urdf
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/urdf/ros_robot_gazebo.xacro
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/urdf/materials.xacro
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/urdf/ros_robot.xacro
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/urdf/ros_robot_ros2_control.xacro
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/rviz
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/rviz/display.rviz
+-- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/world
+-- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/world/my_world
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ament_index/resource_index/package_run_dependencies/ros_robot_description
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ament_index/resource_index/parent_prefix_path/ros_robot_description
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/environment/ament_prefix_path.sh
+-- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/environment/path.sh
+-- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/environment/path.dsv
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/local_setup.bash
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/local_setup.sh
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/local_setup.zsh
+-- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/local_setup.dsv
+-- Installing: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/package.dsv
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ament_index/resource_index/packages/ros_robot_description
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/cmake/ros_robot_descriptionConfig.cmake
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/cmake/ros_robot_descriptionConfig-version.cmake
+-- Up-to-date: /home/shubham/be_project_ws/install/ros_robot_description/share/ros_robot_description/package.xml

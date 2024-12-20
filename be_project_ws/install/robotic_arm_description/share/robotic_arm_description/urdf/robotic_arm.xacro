@@ -1,0 +1,784 @@
+<?xml version="1.0"?>
+<robot name="robotic_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="materials.xacro"/>
+  <xacro:include filename="$(find robotic_arm_description)/urdf/robotic_arm_gazebo.xacro"/>
+  <xacro:include filename="$(find robotic_arm_description)/urdf/robotic_arm_ros2_control.xacro"/>
+
+  <!-- Useful XACRO Variables (Properties) -->
+  <xacro:property name="PI" value="3.14159265359" />
+  <xacro:property name="effort" value="30.0" />
+  <xacro:property name="velocity" value="10.0" />
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="1.554312234475219e-17 -1.099222576860469e-16 0.017338933010191113" rpy="0 0 0" />
+      <mass value="0.17309645088621065" />
+      <inertia ixx="0.000175" iyy="0.000125" izz="0.000244" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/base_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/base_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_servo_1">
+    <inertial>
+      <origin xyz="-0.02548000735801813 0.004925056723316031 -0.00865111179656856" rpy="0 0 0" />
+      <mass value="0.041252406212074204" />
+      <inertia ixx="1.2e-05" iyy="1.8e-05" izz="1e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.02475 0.005 -0.0323" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/base_servo_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.02475 0.005 -0.0323" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/base_servo_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_horn_1">
+    <inertial>
+      <origin xyz="-1.4561811026436722e-07 8.880971045371888e-17 0.0006791469442522305" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.010061 7.5e-05 -0.04855" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/base_horn_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.010061 7.5e-05 -0.04855" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/base_horn_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_servo_rotate_plate_1">
+    <inertial>
+      <origin xyz="-1.4561798602694132e-07 -1.3951039217093009e-14 0.01022051058085454" rpy="0 0 0" />
+      <mass value="0.05748053549522376" />
+      <inertia ixx="3.7e-05" iyy="1.4e-05" izz="3.4e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.010061 7.5e-05 -0.05055" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/base_servo_rotate_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.010061 7.5e-05 -0.05055" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/base_servo_rotate_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_1_horn_1_1">
+    <inertial>
+      <origin xyz="-1.4561789008632475e-07 0.0013208530557477574 -0.007000000000000159" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.010061 0.026075 -0.09155" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_1_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.010061 0.026075 -0.09155" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_1_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_1_horn_2_1">
+    <inertial>
+      <origin xyz="-1.4561788964743971e-07 -0.001320853055747747 -0.006999999999999992" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.010061 -0.025925 -0.09155" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_1_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.010061 -0.025925 -0.09155" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_1_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_1_1">
+    <inertial>
+      <origin xyz="-0.008496007510135933 -0.020953368561477954 0.0049581797809715306" rpy="0 0 0" />
+      <mass value="0.033717792574252975" />
+      <inertia ixx="6e-06" iyy="6e-06" izz="8e-06" ixy="-0.0" iyz="0.0" ixz="1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.010061 -0.021425 -0.08455" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0.010061 -0.021425 -0.08455" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="middle_servo_plate_1">
+    <inertial>
+      <origin xyz="0.027054838386324137 0.02041281662634444 0.07876103923049554" rpy="0 0 0" />
+      <mass value="0.07999879730128946" />
+      <inertia ixx="3.4e-05" iyy="2.8e-05" izz="3.9e-05" ixy="-1e-06" iyz="0.0" ixz="7e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.077305 0.02 -0.022594" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/middle_servo_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.077305 0.02 -0.022594" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/middle_servo_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="middle_plate_upper_1">
+    <inertial>
+      <origin xyz="-0.03413147694011898 0.0100000000000074 0.004703563137033934" rpy="0 0 0" />
+      <mass value="0.10898418485931327" />
+      <inertia ixx="7.5e-05" iyy="7.1e-05" izz="0.000104" ixy="-0.0" iyz="0.0" ixz="2.1e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0.061987 0.010075 -0.122612" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/middle_plate_upper_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.061987 0.010075 -0.122612" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/middle_plate_upper_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_2_horn_1_1">
+    <inertial>
+      <origin xyz="-0.0034996259363721804 0.0013208530557489231 -0.0060620127019468395" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.125457 0.026075 -0.158679" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_2_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.125457 0.026075 -0.158679" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_2_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_2_horn_2_1">
+    <inertial>
+      <origin xyz="-0.003499625936371903 -0.0013208530557463766 -0.006062012701946895" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.125457 -0.025925 -0.158679" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_2_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.125457 -0.025925 -0.158679" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_2_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_2_1">
+    <inertial>
+      <origin xyz="0.008496235955668313 0.020953368561479183 0.004958167079080006" rpy="0 0 0" />
+      <mass value="0.033717792574252975" />
+      <inertia ixx="6e-06" iyy="6e-06" izz="8e-06" ixy="-0.0" iyz="-0.0" ixz="-1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.128957 0.021575 -0.152617" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0.128957 0.021575 -0.152617" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="upper_arm_1">
+    <inertial>
+      <origin xyz="-0.12670522119529493 -0.019924999999993843 0.11689055873085269" rpy="0 0 0" />
+      <mass value="0.14353366516398364" />
+      <inertia ixx="8.5e-05" iyy="0.000169" izz="0.000164" ixy="-0.0" iyz="-0.0" ixz="-6.2e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.049182 -0.01985 -0.075185" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/upper_arm_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.049182 -0.01985 -0.075185" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/upper_arm_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wrist_servo_plate_1">
+    <inertial>
+      <origin xyz="0.01137942355294503 0.009999999999983425 -0.002119513521025601" rpy="0 0 0" />
+      <mass value="0.04064477064241212" />
+      <inertia ixx="2.3e-05" iyy="6e-06" izz="2.4e-05" ixy="-0.0" iyz="-0.0" ixz="-1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.034413 0.010075 -0.215862" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/wrist_servo_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.034413 0.010075 -0.215862" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/wrist_servo_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_3_horn_1_1">
+    <inertial>
+      <origin xyz="0.0034995465759111513 0.0013208530557481286 -0.006061999999944279" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.013645 0.026075 -0.227852" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_3_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.013645 0.026075 -0.227852" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_3_horn_1_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_3_horn_2_1">
+    <inertial>
+      <origin xyz="0.0034995465759111773 -0.0013208530557473584 -0.006061999999944084" rpy="0 0 0" />
+      <mass value="0.004971913761285522" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0.013645 -0.025925 -0.227852" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_3_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin xyz="0.013645 -0.025925 -0.227852" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_3_horn_2_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="servo_3_1">
+    <inertial>
+      <origin xyz="0.00854138716873519 0.020953368561478305 -0.00487854233514734" rpy="0 0 0" />
+      <mass value="0.033717792574252975" />
+      <inertia ixx="6e-06" iyy="6e-06" izz="8e-06" ixy="-0.0" iyz="0.0" ixz="1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0.010145 0.021575 -0.22179" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0.010145 0.021575 -0.22179" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/servo_3_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wrist_end_plate_1">
+    <inertial>
+      <origin xyz="0.14270073927415955 -0.020472741438038566 0.16492637871706972" rpy="0 0 0" />
+      <mass value="0.07124665161583428" />
+      <inertia ixx="3.8e-05" iyy="3.5e-05" izz="3.6e-05" ixy="-1e-06" iyz="-0.0" ixz="-1.3e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0.112104 -0.01985 -0.051702" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/wrist_end_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="0.112104 -0.01985 -0.051702" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/wrist_end_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gripper_plate_1">
+    <inertial>
+      <origin xyz="0.012355066666894406 0.013909633128716839 -0.01625523589129535" rpy="0 0 0" />
+      <mass value="0.13706160871868234" />
+      <inertia ixx="8.7e-05" iyy="5.3e-05" izz="8.7e-05" ixy="-0.0" iyz="1e-06" ixz="8e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.03146 0.010075 -0.205852" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/gripper_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <origin xyz="-0.03146 0.010075 -0.205852" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/gripper_plate_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gripper_servo_1">
+    <inertial>
+      <origin xyz="-0.009791226660969474 0.02394228387798254 -0.0071084470585666415" rpy="0 0 0" />
+      <mass value="0.041252406212074204" />
+      <inertia ixx="1.6e-05" iyy="1.2e-05" izz="1.2e-05" ixy="-0.0" iyz="-0.0" ixz="-4e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.049771 0.024825 -0.167568" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/gripper_servo_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="-0.049771 0.024825 -0.167568" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/gripper_servo_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="camera_1">
+    <inertial>
+      <origin xyz="-0.003443301336705805 0.017000000000000775 -0.01764176559028041" rpy="0 0 0" />
+      <mass value="0.040919999999949795" />
+      <inertia ixx="4e-06" iyy="4e-06" izz="4e-06" ixy="-0.0" iyz="0.0" ixz="-0.0" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.05446 0.017075 -0.245689" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/camera_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <collision>
+      <origin xyz="-0.05446 0.017075 -0.245689" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/camera_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_gear_1">
+    <inertial>
+      <origin xyz="0.003952018320681178 0.0015997039231446415 -0.004014005798160608" rpy="0 0 0" />
+      <mass value="0.015461499275042243" />
+      <inertia ixx="1e-06" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.054505 -0.016864 -0.185619" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/left_gear_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin xyz="-0.054505 -0.016864 -0.185619" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/left_gear_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_gear_1">
+    <inertial>
+      <origin xyz="0.003948108433514348 -0.0016152366957151339 -0.0040117484237523204" rpy="0 0 0" />
+      <mass value="0.015461499275042243" />
+      <inertia ixx="1e-06" iyy="2e-06" izz="2e-06" ixy="0.0" iyz="-0.0" ixz="1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.054505 0.010136 -0.185619" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/right_gear_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin xyz="-0.054505 0.010136 -0.185619" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/right_gear_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_arm_1">
+    <inertial>
+      <origin xyz="0.018841147692758145 -0.006662577094958846 -0.012610445145075588" rpy="0 0 0" />
+      <mass value="0.011641926595302913" />
+      <inertia ixx="1e-06" iyy="3e-06" izz="3e-06" ixy="1e-06" iyz="-0.0" ixz="1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.078766 -0.025592 -0.168148" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/left_arm_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin xyz="-0.078766 -0.025592 -0.168148" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/left_arm_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_arm_1">
+    <inertial>
+      <origin xyz="0.019116396131213048 0.00546957067769443 -0.012768843244613082" rpy="0 0 0" />
+      <mass value="0.011641926595302913" />
+      <inertia ixx="1e-06" iyy="3e-06" izz="3e-06" ixy="-0.0" iyz="0.0" ixz="1e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.078727 0.019016 -0.16817" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/right_arm_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin xyz="-0.078727 0.019016 -0.16817" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotic_arm_description/meshes/right_arm_1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Rigid 1" type="fixed">
+    <origin xyz="0.02475 -0.005 0.0323" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="base_servo_1" />
+  </joint>
+
+  <joint name="Base Rotate" type="continuous">
+    <origin xyz="-0.034811 0.004925 0.01625" rpy="0 0 0" />
+    <parent link="base_servo_1" />
+    <child link="base_horn_1" />
+    <axis xyz="0.0 -0.0 1.0" />
+    <limit lower="-${PI / 2}" upper="${PI / 2}" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <joint name="Rigid 3" type="fixed">
+    <origin xyz="0.0 0.0 0.002" rpy="0 0 0" />
+    <parent link="base_horn_1" />
+    <child link="base_servo_rotate_plate_1" />
+  </joint>
+
+  <joint name="Rigid 4" type="fixed">
+    <origin xyz="0.0 -0.026 0.041" rpy="0 0 0" />
+    <parent link="base_servo_rotate_plate_1" />
+    <child link="servo_1_horn_1_1" />
+  </joint>
+
+  <joint name="Rigid 5" type="fixed">
+    <origin xyz="0.0 0.026 0.041" rpy="0 0 0" />
+    <parent link="base_servo_rotate_plate_1" />
+    <child link="servo_1_horn_2_1" />
+  </joint>
+
+  <joint name="Shoulder Rotate" type="continuous">
+    <origin xyz="0.0 -0.0045 -0.007" rpy="0 0 0" />
+    <parent link="servo_1_horn_2_1" />
+    <child link="servo_1_1" />
+    <axis xyz="-0.0 -1.0 -0.0" />
+    <limit lower="-2.7" upper="0.5" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <joint name="Rigid 7" type="fixed">
+    <origin xyz="-0.067244 -0.041425 -0.061956" rpy="0 0 0" />
+    <parent link="servo_1_1" />
+    <child link="middle_servo_plate_1" />
+  </joint>
+
+  <joint name="Rigid 8" type="fixed">
+    <origin xyz="0.015318 0.009925 0.100018" rpy="0 0 0" />
+    <parent link="middle_servo_plate_1" />
+    <child link="middle_plate_upper_1" />
+  </joint>
+
+  <joint name="Rigid 9" type="fixed">
+    <origin xyz="-0.06347 -0.016 0.036067" rpy="0 0 0" />
+    <parent link="middle_plate_upper_1" />
+    <child link="servo_2_horn_1_1" />
+  </joint>
+
+  <joint name="Rigid 10" type="fixed">
+    <origin xyz="-0.06347 0.036 0.036067" rpy="0 0 0" />
+    <parent link="middle_plate_upper_1" />
+    <child link="servo_2_horn_2_1" />
+  </joint>
+
+  <joint name="Elbow Rotate" type="continuous">
+    <origin xyz="-0.0035 0.0045 -0.006062" rpy="0 0 0" />
+    <parent link="servo_2_horn_1_1" />
+    <child link="servo_2_1" />
+    <axis xyz="-0.0 1.0 -0.0" />
+    <limit lower="-1.0" upper="0.4" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <joint name="Rigid 12" type="fixed">
+    <origin xyz="0.178139 0.041425 -0.077432" rpy="0 0 0" />
+    <parent link="servo_2_1" />
+    <child link="upper_arm_1" />
+  </joint>
+
+  <joint name="Rigid 13" type="fixed">
+    <origin xyz="-0.083595 -0.029925 0.140677" rpy="0 0 0" />
+    <parent link="upper_arm_1" />
+    <child link="wrist_servo_plate_1" />
+  </joint>
+
+  <joint name="Rigid 14" type="fixed">
+    <origin xyz="0.020768 -0.016 0.01199" rpy="0 0 0" />
+    <parent link="wrist_servo_plate_1" />
+    <child link="servo_3_horn_1_1" />
+  </joint>
+
+  <joint name="Rigid 15" type="fixed">
+    <origin xyz="0.020768 0.036 0.01199" rpy="0 0 0" />
+    <parent link="wrist_servo_plate_1" />
+    <child link="servo_3_horn_2_1" />
+  </joint>
+
+  <joint name="Wrist Rotate" type="continuous">
+    <origin xyz="0.0035 0.0045 -0.006062" rpy="0 0 0" />
+    <parent link="servo_3_horn_1_1" />
+    <child link="servo_3_1" />
+    <axis xyz="-0.0 1.0 -0.0" />
+    <limit lower="-2.7" upper="0.0" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <joint name="Rigid 17" type="fixed">
+    <origin xyz="-0.101959 0.041425 -0.170088" rpy="0 0 0" />
+    <parent link="servo_3_1" />
+    <child link="wrist_end_plate_1" />
+  </joint>
+
+  <joint name="Rigid 18" type="fixed">
+    <origin xyz="0.143564 -0.029925 0.15415" rpy="0 0 0" />
+    <parent link="wrist_end_plate_1" />
+    <child link="gripper_plate_1" />
+  </joint>
+
+  <joint name="Rigid 19" type="fixed">
+    <origin xyz="0.018311 -0.01475 -0.038284" rpy="0 0 0" />
+    <parent link="gripper_plate_1" />
+    <child link="gripper_servo_1" />
+  </joint>
+
+  <joint name="Rigid 25" type="fixed">
+    <origin xyz="0.166564 -0.036925 0.193987" rpy="0 0 0" />
+    <parent link="wrist_end_plate_1" />
+    <child link="camera_1" />
+  </joint>
+
+  <joint name="Gripper Grab" type="continuous">
+    <origin xyz="0.023045 0.026939 -0.020233" rpy="0 0 0" />
+    <parent link="gripper_plate_1" />
+    <child link="left_gear_1" />
+    <axis xyz="0.5 0.0 0.866025" />
+    <limit lower="-0.085" upper="0.5" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <joint name="Revolute 27" type="continuous">
+    <origin xyz="0.023045 -6.1e-05 -0.020233" rpy="0 0 0" />
+    <parent link="gripper_plate_1" />
+    <child link="right_gear_1" />
+    <axis xyz="0.5 0.0 0.866025" />
+    <mimic joint="Gripper Grab" multiplier="-1"/>
+  </joint>
+
+  <joint name="Rigid 28" type="fixed">
+    <origin xyz="0.024261 0.008728 -0.017471" rpy="0 0 0" />
+    <parent link="left_gear_1" />
+    <child link="left_arm_1" />
+  </joint>
+
+  <joint name="Rigid 29" type="fixed">
+    <origin xyz="0.024222 -0.00888 -0.017449" rpy="0 0 0" />
+    <parent link="right_gear_1" />
+    <child link="right_arm_1" />
+  </joint>
+
+  <transmission name="transmission_base">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="base_servo" role="actuator1"/>
+    <joint name="Base Rotate" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_shoulder">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="shoulder_servo" role="actuator1"/>
+    <joint name="Shoulder Rotate" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_elbow">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="elbow_servo" role="actuator1"/>
+    <joint name="Elbow Rotate" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_wrist">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="wrist_servo" role="actuator1"/>
+    <joint name="Wrist Rotate" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+  <transmission name="transmission_grab">
+    <plugin>transmission_interface/SimpleTransmission</plugin>
+    <actuator name="grab_servo" role="actuator1"/>
+    <joint name="Gripper Grab" role="joint1">
+        <mechanical_reduction>1.0</mechanical_reduction>
+    </joint>
+  </transmission>
+
+</robot>

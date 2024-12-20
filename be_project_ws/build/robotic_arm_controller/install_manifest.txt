@@ -1,0 +1,17 @@
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/config/robotic_arm_controllers.yaml
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/launch/controller.launch.py
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/ament_index/resource_index/package_run_dependencies/robotic_arm_controller
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/ament_index/resource_index/parent_prefix_path/robotic_arm_controller
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/environment/ament_prefix_path.sh
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/environment/ament_prefix_path.dsv
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/environment/path.sh
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/environment/path.dsv
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/local_setup.bash
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/local_setup.sh
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/local_setup.zsh
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/local_setup.dsv
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/package.dsv
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/ament_index/resource_index/packages/robotic_arm_controller
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/cmake/robotic_arm_controllerConfig.cmake
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/cmake/robotic_arm_controllerConfig-version.cmake
+/home/shubham/be_project_ws/install/robotic_arm_controller/share/robotic_arm_controller/package.xml

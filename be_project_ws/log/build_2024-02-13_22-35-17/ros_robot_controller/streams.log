@@ -1,0 +1,5 @@
+[0.153s] Invoking command in '/home/shubham/be_project_ws/build/ros_robot_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/ros_robot_controller -- -j16 -l16
+[0.166s] [0mCMake Error: The source directory "/home/shubham/be_project_ws/ros_robot_controller" does not exist.
+[0.166s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.166s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.168s] Invoked command in '/home/shubham/be_project_ws/build/ros_robot_controller' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shubham/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/humble /usr/bin/cmake --build /home/shubham/be_project_ws/build/ros_robot_controller -- -j16 -l16
